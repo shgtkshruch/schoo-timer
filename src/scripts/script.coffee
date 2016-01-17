@@ -1,4 +1,6 @@
 'use strict'
 
 timerElem = document.getElementById 'timer'
-timerElem.textContent = new Date()
+setInterval ->
+  timerElem.textContent = new Date()
+, 1000
