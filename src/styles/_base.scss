@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #3b3a3f;
+  font-size: 1.4rem;
+  font-family: Georgia, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}

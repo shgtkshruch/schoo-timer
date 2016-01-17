@@ -1,0 +1,15 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset='UTF-8')
+    title schoo-timer
+    link(rel='stylesheet', href='styles/style.css', media='all')
+  body
+    #timer.timer 00:00
+    button#start.timer__btn.timer__btn--start Start
+    button#stop.timer__btn.timer__btn--stop Stop
+    button#reset.timer__btn.timer__btn--reset Reset
+
+    // build:js scripts/main.js
+    script(src='scripts/script.js')
+    // endbuild
