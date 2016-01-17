@@ -1,0 +1,296 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #3b3a3f;
+  font-family: Georgia, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.timer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 600px;
+  height: 12rem;
+  margin: auto;
+  color: #00d79b;
+  font-size: 12rem;
+  letter-spacing: 6px;
+}
+
+.timer::before,
+.timer::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 3px solid #00d79b;
+  border-radius: 50%;
+  content: '';
+}
+
+.timer::before {
+  -webkit-animation: rotate 10s linear infinite;
+  width: 90%;
+  padding-top: 90%;
+  border-top: none;
+  border-bottom: none;
+  animation: rotate 10s linear infinite;
+}
+
+.timer::after {
+  -webkit-animation: rotate 15s linear infinite reverse;
+  width: 100%;
+  padding-top: 100%;
+  border-right: none;
+  border-left: none;
+  animation: rotate 15s linear infinite reverse;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+.timer__btn {
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  top: 70%;
+  width: 10rem;
+  height: 10rem;
+  margin-left: -5rem;
+  transition: background-color 0.3s linear;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.timer__btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.timer__btn--start {
+  left: 38%;
+}
+
+.timer__btn--stop {
+  left: 50%;
+}
+
+.timer__btn--reset {
+  left: 62%;
+}
