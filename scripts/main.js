@@ -1,51 +1,66 @@
 (function() {
   'use strict';
-  var intervalId, passedTime, render, reset, start, stop, timerElem, zeroFill;
+  var Timer, timer;
 
-  passedTime = 0;
-
-  intervalId = null;
-
-  timerElem = document.getElementById('timer');
-
-  start = function() {
-    if (intervalId) {
-      return;
+  Timer = (function() {
+    function Timer(elem) {
+      this.timerElem = elem;
+      this.passedTime = 0;
+      this.intervalId = null;
     }
-    return intervalId = setInterval(function() {
-      passedTime++;
-      return render();
-    }, 1000);
-  };
 
-  stop = function() {
-    if (intervalId) {
-      clearInterval(intervalId);
-      return intervalId = null;
-    }
-  };
+    Timer.prototype.start = function() {
+      if (this.intervalId !== null) {
+        return;
+      }
+      return this.intervalId = setInterval((function(_this) {
+        return function() {
+          _this.passedTime++;
+          return _this.render();
+        };
+      })(this), 1000);
+    };
 
-  reset = function() {
-    stop();
-    passedTime = 0;
-    return render();
-  };
+    Timer.prototype.stop = function() {
+      if (this.intervalId !== null) {
+        clearInterval(this.intervalId);
+        return this.intervalId = null;
+      }
+    };
 
-  render = function() {
-    var minutes, seconds;
-    minutes = Math.floor(passedTime / 60);
-    seconds = passedTime % 60;
-    return timerElem.textContent = zeroFill(minutes) + ':' + zeroFill(seconds);
-  };
+    Timer.prototype.reset = function() {
+      this.stop();
+      this.passedTime = 0;
+      return this.render();
+    };
 
-  zeroFill = function(num) {
-    return ('0' + num).slice(-2);
-  };
+    Timer.prototype.render = function() {
+      var minutes, seconds;
+      minutes = Math.floor(this.passedTime / 60);
+      seconds = this.passedTime % 60;
+      return this.timerElem.textContent = this.zeroFill(minutes) + ':' + this.zeroFill(seconds);
+    };
 
-  document.getElementById('start').addEventListener('click', start);
+    Timer.prototype.zeroFill = function(num) {
+      return ('0' + num).slice(-2);
+    };
 
-  document.getElementById('stop').addEventListener('click', stop);
+    return Timer;
 
-  document.getElementById('reset').addEventListener('click', reset);
+  })();
+
+  timer = new Timer(document.getElementById('timer'));
+
+  document.getElementById('start').addEventListener('click', function() {
+    return timer.start();
+  });
+
+  document.getElementById('stop').addEventListener('click', function() {
+    return timer.stop();
+  });
+
+  document.getElementById('reset').addEventListener('click', function() {
+    return timer.reset();
+  });
 
 }).call(this);
